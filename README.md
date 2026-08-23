@@ -5,6 +5,11 @@ Chrome 拡張機能 (Vite でビルド)
 - [dowa](https://www.npmjs.com/package/dowa) の `contains` を使って、Twitter のツイートに「冷笑」が含まれているかを判定します
 - 冷笑が含まれているときのみ、ツイート下部に **⚠️ 冷笑が含まれています！** を表示します
 
+## インストール
+
+- Chrome: https://chromewebstore.google.com/detail/kkojaplhlbbildhofdophfadmbdholdn
+- Firefox: https://addons.mozilla.org/firefox/addon/%E5%86%B7%E7%AC%91%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC-for-twitter/
+
 ## 開発手順
 
 1. 依存をインストール
