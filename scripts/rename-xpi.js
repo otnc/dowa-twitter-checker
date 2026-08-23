@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const dist = path.resolve(__dirname, '..', 'dist');
 
-const files = fs.readdirSync(dist).filter(f => f.endsWith('.zip'));
+const files = fs.readdirSync(dist).filter((f) => f.endsWith('.zip'));
 if (files.length === 0) {
   console.error('No zip artifact found in dist/');
   process.exit(2);

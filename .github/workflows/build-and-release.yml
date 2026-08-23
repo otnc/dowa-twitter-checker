@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
     inputs:
+      version:
+        description: 'Version to release (e.g. 1.2.3). Leave empty to use the current package.json version'
+        required: false
+        default: ''
       force_release:
         description: 'Force release even if package.json version is not newer'
         required: false
@@ -35,6 +39,26 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Apply version input
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.version != ''
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid version format: $VERSION"
+            exit 1
+          fi
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
+          node scripts/sync-version.js
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json src/manifest.json src/manifest.firefox.json
+          if git diff --cached --quiet; then
+            echo "No version changes to commit"
+          else
+            git commit -m "chore: bump version to $VERSION"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
 
       - name: Build (Chrome & Firefox)
         run: |

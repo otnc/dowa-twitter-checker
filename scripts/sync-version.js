@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, '..');
 const pkgPath = path.join(root, 'package.json');
 const manifests = [
   path.join(root, 'src', 'manifest.json'),
-  path.join(root, 'src', 'manifest.firefox.json')
+  path.join(root, 'src', 'manifest.firefox.json'),
 ];
 
 let pkg;

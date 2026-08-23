@@ -22,7 +22,9 @@ const archive = archiver('zip', { zlib: { level: 9 } });
 output.on('close', () => {
   console.log(`${outPath} created (${archive.pointer()} total bytes)`);
 });
-archive.on('error', (err) => { throw err; });
+archive.on('error', (err) => {
+  throw err;
+});
 archive.pipe(output);
 archive.directory(source, false);
 archive.finalize();

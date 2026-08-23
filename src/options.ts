@@ -16,7 +16,7 @@ async function loadSettings() {
 async function saveSettings() {
   try {
     await chrome.storage.sync.set({
-      hideCynicalTweets: hideCynicalTweetsCheckbox.checked
+      hideCynicalTweets: hideCynicalTweetsCheckbox.checked,
     });
     showStatus('設定を保存しました');
   } catch (error) {
