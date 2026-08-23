@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
   "name": "冷笑チェッカー for Twitter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "ツイートに冷笑が含まれているかをチェックします",
-  "permissions": ["scripting", "storage"],
+  "permissions": [
+    "scripting",
+    "storage"
+  ],
   "background": {
     "service_worker": "src/background.ts"
   },
@@ -38,7 +41,9 @@
         "https://x.com/*",
         "https://*.x.com/*"
       ],
-      "js": ["src/content.ts"],
+      "js": [
+        "src/content.ts"
+      ],
       "run_at": "document_idle"
     }
   ]
