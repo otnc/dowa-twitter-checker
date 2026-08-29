@@ -1,4 +1,6 @@
 dist/
 node_modules/
+src/manifest.firefox.json
+src/manifest.json
 package-lock.json
 package.json
