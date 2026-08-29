@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "冷笑チェッカー for Twitter",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "ツイートに冷笑が含まれているかをチェックします",
   "permissions": [
     "storage"
